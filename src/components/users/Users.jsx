@@ -1,10 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import SkeletonUsers from "../skeleton/SkeletonUsers";
 
 const Users = () => {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`https://dummyjson.com/users`)
       .then((res) => {
@@ -13,9 +17,17 @@ const Users = () => {
       })
       .catch((err) => {
         console.log(err);
+        setError(err);
       })
-      .finally();
+      .finally(() => setLoading(false));
   }, []);
+  if (error) {
+    return (
+      <div className="text-red-600 text-center mt-3">
+        <p>Something is wrong :)</p>
+      </div>
+    );
+  }
 
   return (
     <div id="users" className="max-w-[1200px] mx-auto px-[15px] text-gray-900">
@@ -30,6 +42,7 @@ const Users = () => {
           >
             <div className="max-w-[320px] overflow-hidden mx-auto rounded-2xl">
               <img
+              loading="lazy"
                 src={user.image}
                 alt={user.firstName}
                 className="w-full h-full rounded-2xl hover:scale-110 duration-300 cursor-pointer"
@@ -67,6 +80,7 @@ const Users = () => {
           </div>
         ))}
       </div>
+      {loading && <SkeletonUsers />}
     </div>
   );
 };

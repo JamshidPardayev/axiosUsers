@@ -22,10 +22,10 @@ const Header = () => {
           <li>Users</li>
         </a>
         <a
-          href="#carts"
+          href="#products"
           className="relative font-semibold hover:text-green-600 before:absolute before:left-0 before:bottom-0 before:w-[0%] before:h-[2px] before:bg-green-600  hover:before:w-[100%] cursor-pointer before:duration-300"
         >
-          <li>Carts</li>
+          <li>Products</li>
         </a>
         <a
           href="#footer"
@@ -34,7 +34,7 @@ const Header = () => {
           <li>Footer</li>
         </a>
       </ul>
-      <button className="max-sm:hidden bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white w-[150px] h-[40px] rounded-tl-[40px] rounded-br-[40px] mt-2 hover:from-green-600 hover:to-green-800 duration-300 cursor-pointer">
+      <button className="max-sm:hidden bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white w-[140px] h-[40px] rounded-tl-[40px] rounded-br-[40px] mt-2 hover:from-green-600 hover:to-green-800 duration-300 cursor-pointer">
         <a href="#contact">Contact</a>
       </button>
 
